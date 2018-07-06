@@ -3,7 +3,7 @@ import { Post } from '../../content/models/post.model';
 export interface User {
   id: string;
   username: string;
-  posts: Post['id'];
+  posts: Post[];
 }
 
 export type Users = User[];

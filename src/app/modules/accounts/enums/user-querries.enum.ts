@@ -1,8 +1,9 @@
 import gql from 'graphql-tag';
 
 export const userQuery = gql`
-  query Users {
+  {
     users {
+      id
       username
       posts {
         id

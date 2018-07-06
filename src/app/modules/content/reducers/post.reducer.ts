@@ -2,20 +2,20 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { Post } from '../models/post.model';
 import { PostActions, PostActionTypes } from '../actions/post.actions';
 
-export interface State extends EntityState<Post> {
+export interface PostState extends EntityState<Post> {
   // additional entities state properties
 }
 
 export const adapter: EntityAdapter<Post> = createEntityAdapter<Post>();
 
-export const initialState: State = adapter.getInitialState({
+export const initialState: PostState = adapter.getInitialState({
   // additional entity state properties
 });
 
 export function reducer(
   state = initialState,
   action: PostActions
-): State {
+): PostState {
   switch (action.type) {
     case PostActionTypes.AddPost: {
       return adapter.addOne(action.payload.post, state);
@@ -63,9 +63,3 @@ export function reducer(
   }
 }
 
-export const {
-  selectIds,
-  selectEntities,
-  selectAll,
-  selectTotal,
-} = adapter.getSelectors();
